@@ -5,7 +5,7 @@ function App() {
   return (
     <>
     <Header/>
-    <main><h1>Welcome to ePlanet</h1></main>
+    <main><h1> Welcome to ePlanet </h1>  </main>
     <Footer/>
     </>
   )
