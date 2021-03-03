@@ -1,15 +1,13 @@
-import { Container } from 'react-bootstrap'
 import Header from './Header'
 import Footer from './Footer'
-import HomeScreen from '../screens/HomeScreen'
 
-const App = ()=> {
+function App() {
   return (
     <>
     <Header/>
     <main className='py-3'>
     <Container>
-    <HomeScreen/>
+    <h1>Welcome to ePlanet</h1>
     </Container>
     </main>
     <Footer/>
