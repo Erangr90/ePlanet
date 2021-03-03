@@ -31,10 +31,12 @@ const Movie = ({movie}) => {
         </Card.Text>
 
         <Card.Text as='div'>
+
         <Rating
             value={movie.rating}
-            text={movie.numOfRates + ' Ratings'}
+            text={movie.numOfRates + ' reviews'}
           />
+          {movie.rating}
            <br/>
         </Card.Text>
 

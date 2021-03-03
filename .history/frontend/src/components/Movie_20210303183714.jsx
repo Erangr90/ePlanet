@@ -31,9 +31,11 @@ const Movie = ({movie}) => {
         </Card.Text>
 
         <Card.Text as='div'>
+        {movie.rating}
         <Rating
             value={movie.rating}
-            text={movie.numOfRates + ' Ratings'}
+            text={movie.numOfRates + ' reviews'}
+            style={{display: 'inline'}}
           />
            <br/>
         </Card.Text>

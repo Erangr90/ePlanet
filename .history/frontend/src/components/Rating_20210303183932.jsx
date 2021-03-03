@@ -63,13 +63,13 @@ const Rating = ({ value, text, color }) => {
           }
         ></i>
       </span>
-      <span>{' '}{text && text}</span>
+      <span>{text && text}</span>
     </div>
   )
 }
 
 Rating.defaultProps = {
-  color: '#7cce12',
+  color: '#f8e825',
 }
 
 export default Rating
