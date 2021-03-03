@@ -1,0 +1,19 @@
+{
+  "name": "eplanet",
+  "version": "1.0.0",
+  "description": "MERN eCommerce Cienma application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Erangr90/ePlanet.git"
+  },
+  "author": "Eran Grady",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Erangr90/ePlanet/issues"
+  },
+  "homepage": "https://github.com/Erangr90/ePlanet#readme"
+}
