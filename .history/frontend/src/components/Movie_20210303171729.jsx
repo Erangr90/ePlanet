@@ -35,7 +35,6 @@ const Movie = ({movie}) => {
         <Card.Text as='h3'>{movie.discountedPrice ?
         <p>
         <del>{'$'+movie.price}</del>
-        <br/>
         ${movie.discountedPrice}
         </p>
         :

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
-// import Rating from './Rating'
+import Rating from './Rating'
 
 const Movie = ({movie}) => {
     return (
@@ -21,26 +21,10 @@ const Movie = ({movie}) => {
         </Card.Text>
 
         <Card.Text as='div'>
-            <div className='my-3'>Minimum age {movie.minAge}</div>
-        </Card.Text>
-
-        <Card.Text as='div'>
-            <div className='my-3'>{movie.length} minutes</div>
-        </Card.Text>
-
-        <Card.Text as='div'>
             <div className='my-3'>{movie.rating} from {movie.numOfRates} rates</div>
         </Card.Text>
 
-        <Card.Text as='h3'>{movie.discountedPrice ?
-        <p>
-        <del>{'$'+movie.price}</del>
-        <br/>
-        ${movie.discountedPrice}
-        </p>
-        :
-        '$'+movie.price}
-        </Card.Text>
+        <Card.Text as='h3'>${movie.price}</Card.Text>
 
         </Card.Body>
 

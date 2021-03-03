@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
-// import Rating from './Rating'
+import Rating from './Rating'
 
 const Movie = ({movie}) => {
     return (
@@ -35,7 +35,6 @@ const Movie = ({movie}) => {
         <Card.Text as='h3'>{movie.discountedPrice ?
         <p>
         <del>{'$'+movie.price}</del>
-        <br/>
         ${movie.discountedPrice}
         </p>
         :
