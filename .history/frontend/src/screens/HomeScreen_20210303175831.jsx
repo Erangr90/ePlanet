@@ -1,11 +1,7 @@
-// Node packages
 import React from 'react'
-import { Row,Col } from 'react-bootstrap'
-// Components
-import Movie from '../components/Movie'
-// Models
 import movies from '../movies'
-
+import { Row,Col } from 'react-bootstrap'
+import Movie from '../components/Movie'
 
 const HomeScreen = () => {
     return (

@@ -1,12 +1,10 @@
-// Node packages
 import React from 'react'
 import { Card } from 'react-bootstrap'
-// Components
-import Rating from './Rating'
+// import Rating from './Rating'
 
 const Movie = ({movie}) => {
     return (
-        <Card style={{ width: '14rem' }}className='my-3 px-0 rounded'>
+        <Card style={{ width: '10rem' }}className='my-3 rounded'>
 
         <a href={'/movie/' + movie._id}>
         <Card.Img src={movie.poster} variant='top'/>
@@ -31,12 +29,8 @@ const Movie = ({movie}) => {
         </Card.Text>
 
         <Card.Text as='div'>
-        <Rating
-            value={movie.rating}
-            text={movie.numOfRates + ' reviews'}
-          />
+            <div className='my-3'>{movie.rating} from {movie.numOfRates} rates</div>
         </Card.Text>
-        <br/>
 
         <Card.Text as='h5'>{movie.discountedPrice ?
         <p>

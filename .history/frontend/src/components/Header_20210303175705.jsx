@@ -1,4 +1,3 @@
-// Node packages
 import React from 'react'
 import {Navbar,Form ,Nav,FormControl,Button} from 'react-bootstrap'
 
@@ -17,7 +16,7 @@ const Header = () => {
         </Nav>
         <Form inline>
             <FormControl type='text' placeholder='Search' className='mr-sm-2' />
-            <Button variant='outline-success'>Search</Button>
+            <Button variant='outline-green'>Search</Button>
         </Form>
     </Navbar>
     </header>

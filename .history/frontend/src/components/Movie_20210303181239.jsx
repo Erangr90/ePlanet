@@ -1,7 +1,5 @@
-// Node packages
 import React from 'react'
 import { Card } from 'react-bootstrap'
-// Components
 import Rating from './Rating'
 
 const Movie = ({movie}) => {
@@ -36,7 +34,6 @@ const Movie = ({movie}) => {
             text={movie.numOfRates + ' reviews'}
           />
         </Card.Text>
-        <br/>
 
         <Card.Text as='h5'>{movie.discountedPrice ?
         <p>

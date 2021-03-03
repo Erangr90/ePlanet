@@ -36,7 +36,6 @@ const Movie = ({movie}) => {
             text={movie.numOfRates + ' reviews'}
           />
         </Card.Text>
-        <br/>
 
         <Card.Text as='h5'>{movie.discountedPrice ?
         <p>
