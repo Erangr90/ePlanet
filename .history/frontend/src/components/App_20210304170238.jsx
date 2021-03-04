@@ -15,7 +15,7 @@ const App = ()=> {
     <main className='py-3'>
     <Container>
     <Route path='/' component={HomeScreen} exact/>
-    <Route path='/movie/:id' component={MovieDisplayScreen} exact/>
+    <Route path='/movie/:id' component={MovieDisplayScreen} />
     </Container>
     </main>
     <Footer/>
