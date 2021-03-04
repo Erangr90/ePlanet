@@ -12,6 +12,7 @@ const ShowDisplayScreen = ({match}) => {
 
   const [qty, setQty] = useState(1)
 
+  const date = show.date
   const year = show.date.split('-')[0]
   const mount = show.date.split('-')[1]
   const day = show.date.split('-')[2]

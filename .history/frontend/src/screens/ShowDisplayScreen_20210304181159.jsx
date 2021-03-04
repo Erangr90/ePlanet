@@ -5,13 +5,14 @@ import Rating from '../components/Rating'
 import shows from '../shows'
 
 
-const ShowDisplayScreen = ({match}) => {
+const ShowScreen = ({match}) => {
 
 
   const show= shows.find((s)=> s._id === match.params.id)
 
   const [qty, setQty] = useState(1)
 
+  const date = show.date
   const year = show.date.split('-')[0]
   const mount = show.date.split('-')[1]
   const day = show.date.split('-')[2]
@@ -22,10 +23,6 @@ const ShowDisplayScreen = ({match}) => {
   const addDecimals = (num) => {
     return (Math.round(num * 100) / 100).toFixed(2)
   }
-
-  let price = null
-  price = show.hall.hallKind.kind ==='VIP' ? show.hall.hallKind.price : show.movie.discountedPrice ? show.movie.discountedPrice+show.hall.hallKind.price : show.movie.price + show.hall.hallKind.price
-  price = addDecimals(price)
 
   const addToCartHandler = () =>{
 
@@ -48,7 +45,7 @@ const ShowDisplayScreen = ({match}) => {
               <ListGroup variant='light'>
                 <ListGroup.Item>
                   <h5>{show.movie.name}</h5>
-                  <h5>{day+'/'+mount+'/'+year} at {hour<10 ? '0'+hour : hour}{':'}{minutes<10 ? '0'+minutes : minutes}</h5>
+                  <h5>{year+'/'+mount+'/'+day} at {hour<10 ? '0'+hour : hour}{':'}{minutes<10 ? '0'+minutes : minutes}</h5>
                   <h5>Hall {show.hall.number}{' - '}{show.hall.hallKind.kind}</h5>
                 </ListGroup.Item>
                 <ListGroup.Item>
@@ -63,7 +60,7 @@ const ShowDisplayScreen = ({match}) => {
                     text={show.movie.numOfRates+' Ratings'}
                   />
                 </ListGroup.Item>
-                <ListGroup.Item>{show.movie.discountedPrice ? <p>Price: <del>{addDecimals(show.movie.price+show.hall.hallKind.price)}</del>${price}</p> :<p>Price: ${price}</p> }</ListGroup.Item>
+                <ListGroup.Item>{show.movie.discountedPrice ? <p>Price: <del>{addDecimals(show.movie.price+show.hall.hallKind.price)}</del>${addDecimals(show.movie.discountedPrice +show.hall.hallKind.price)}</p> :<p>Price: ${addDecimals(show.movie.price+show.hall.hallKind.price)}</p> }</ListGroup.Item>
               </ListGroup>
             </Col>
             <Col md={3}>
@@ -73,7 +70,7 @@ const ShowDisplayScreen = ({match}) => {
                     <Row>
                       <Col>Price:</Col>
                       <Col>
-                      {show.movie.discountedPrice ? <p><del>{addDecimals(qty *(show.movie.price + show.hall.hallKind.price))}</del>${qty*price}</p> :<p>${qty*price}</p> }
+                      {movie.discountedPrice ? <p><del>{addDecimals(qty *movie.price)}</del>${addDecimals(qty *movie.discountedPrice)}</p> :<p>${addDecimals(qty*movie.price)}</p> }
                       </Col>
                     </Row>
                   </ListGroup.Item>
@@ -120,4 +117,4 @@ const ShowDisplayScreen = ({match}) => {
     )
 }
 
-export default ShowDisplayScreen
+export default ShowScreen

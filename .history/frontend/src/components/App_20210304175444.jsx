@@ -7,7 +7,6 @@ import Footer from './Footer'
 // Screens
 import HomeScreen from '../screens/HomeScreen'
 import MovieDisplayScreen from '../screens/MovieDisplayScreen'
-import ShowDisplayScreen from '../screens/ShowDisplayScreen'
 
 const App = ()=> {
   return (
@@ -17,7 +16,6 @@ const App = ()=> {
     <Container>
     <Route path='/' component={HomeScreen} exact/>
     <Route path='/movie/:id' component={MovieDisplayScreen} exact/>
-    <Route path='/show/:id' component={ShowDisplayScreen} exact/>
     </Container>
     </main>
     <Footer/>

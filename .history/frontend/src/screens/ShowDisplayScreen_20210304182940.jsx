@@ -12,6 +12,7 @@ const ShowDisplayScreen = ({match}) => {
 
   const [qty, setQty] = useState(1)
 
+  const date = show.date
   const year = show.date.split('-')[0]
   const mount = show.date.split('-')[1]
   const day = show.date.split('-')[2]
@@ -48,7 +49,7 @@ const ShowDisplayScreen = ({match}) => {
               <ListGroup variant='light'>
                 <ListGroup.Item>
                   <h5>{show.movie.name}</h5>
-                  <h5>{day+'/'+mount+'/'+year} at {hour<10 ? '0'+hour : hour}{':'}{minutes<10 ? '0'+minutes : minutes}</h5>
+                  <h5>{year+'/'+mount+'/'+day} at {hour<10 ? '0'+hour : hour}{':'}{minutes<10 ? '0'+minutes : minutes}</h5>
                   <h5>Hall {show.hall.number}{' - '}{show.hall.hallKind.kind}</h5>
                 </ListGroup.Item>
                 <ListGroup.Item>
@@ -73,7 +74,7 @@ const ShowDisplayScreen = ({match}) => {
                     <Row>
                       <Col>Price:</Col>
                       <Col>
-                      {show.movie.discountedPrice ? <p><del>{addDecimals(qty *(show.movie.price + show.hall.hallKind.price))}</del>${qty*price}</p> :<p>${qty*price}</p> }
+                      {show.movie.discountedPrice ? <p><del>{addDecimals(qty *(show.movie.price + show.hall.hallKind.price))}</del>${price}</p> :<p>${price}</p> }
                       </Col>
                     </Row>
                   </ListGroup.Item>

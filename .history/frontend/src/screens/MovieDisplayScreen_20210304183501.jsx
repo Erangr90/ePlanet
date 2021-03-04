@@ -1,6 +1,6 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Link } from 'react-router-dom'
-import { Row, Col, Image, ListGroup} from 'react-bootstrap'
+import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
 import Rating from '../components/Rating'
 import movies from '../movies'
 
@@ -8,10 +8,16 @@ const MovieDisplayScreen = ({match}) => {
 
   const movie= movies.find((m)=> m._id === match.params.id)
 
+  const [qty, setQty] = useState(1)
 
   const addDecimals = (num) => {
     return (Math.round(num * 100) / 100).toFixed(2)
   }
+
+  const addToCartHandler = () =>{
+
+  }
+
 
 
   return (

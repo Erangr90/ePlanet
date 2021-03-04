@@ -2,30 +2,17 @@ import React,{useState} from 'react'
 import { Link } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
 import Rating from '../components/Rating'
-import shows from '../shows'
+import movies from '../movies'
 
+const MovieDisplayScreen = ({match}) => {
 
-const ShowDisplayScreen = ({match}) => {
-
-
-  const show= shows.find((s)=> s._id === match.params.id)
+  const movie= movies.find((m)=> m._id === match.params.id)
 
   const [qty, setQty] = useState(1)
-
-  const year = show.date.split('-')[0]
-  const mount = show.date.split('-')[1]
-  const day = show.date.split('-')[2]
-
-  const hour =show.time.hour
-  const minutes = show.time.minutes
 
   const addDecimals = (num) => {
     return (Math.round(num * 100) / 100).toFixed(2)
   }
-
-  let price = null
-  price = show.hall.hallKind.kind ==='VIP' ? show.hall.hallKind.price : show.movie.discountedPrice ? show.movie.discountedPrice+show.hall.hallKind.price : show.movie.price + show.hall.hallKind.price
-  price = addDecimals(price)
 
   const addToCartHandler = () =>{
 
@@ -33,8 +20,8 @@ const ShowDisplayScreen = ({match}) => {
 
 
 
-    return (
-        <>
+  return (
+    <>
       <Link className='btn btn-success my-3' to='/'>
         Go Back
       </Link>
@@ -42,28 +29,26 @@ const ShowDisplayScreen = ({match}) => {
         <>
           <Row>
             <Col md={6}>
-              <Image src={show.movie.poster} alt={show.movie.name} fluid />
+              <Image src={movie.poster} alt={movie.name} fluid />
             </Col>
             <Col md={3}>
               <ListGroup variant='light'>
                 <ListGroup.Item>
-                  <h5>{show.movie.name}</h5>
-                  <h5>{day+'/'+mount+'/'+year} at {hour<10 ? '0'+hour : hour}{':'}{minutes<10 ? '0'+minutes : minutes}</h5>
-                  <h5>Hall {show.hall.number}{' - '}{show.hall.hallKind.kind}</h5>
+                  <h5>{movie.name}</h5>
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  {show.movie.genre}, {' '}{' '}Age: {show.movie.minAge}
+                  {movie.genre}, {' '}{' '}Age: {movie.minAge}
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  {show.movie.length}{' Minutes'}
+                  {movie.length}{' minutes'}
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Rating
-                    value={show.movie.rating}
-                    text={show.movie.numOfRates+' Ratings'}
+                    value={movie.rating}
+                    text={movie.numOfRates+' Ratings'}
                   />
                 </ListGroup.Item>
-                <ListGroup.Item>{show.movie.discountedPrice ? <p>Price: <del>{addDecimals(show.movie.price+show.hall.hallKind.price)}</del>${price}</p> :<p>Price: ${price}</p> }</ListGroup.Item>
+                <ListGroup.Item>{movie.discountedPrice ? <p>Price: <del>{addDecimals(movie.price)}</del>${addDecimals(movie.discountedPrice)}</p> :<p>Price: ${addDecimals(movie.price)}</p> }</ListGroup.Item>
               </ListGroup>
             </Col>
             <Col md={3}>
@@ -73,7 +58,7 @@ const ShowDisplayScreen = ({match}) => {
                     <Row>
                       <Col>Price:</Col>
                       <Col>
-                      {show.movie.discountedPrice ? <p><del>{addDecimals(qty *(show.movie.price + show.hall.hallKind.price))}</del>${qty*price}</p> :<p>${qty*price}</p> }
+                      {movie.discountedPrice ? <p><del>{addDecimals(qty *movie.price)}</del>${addDecimals(qty *movie.discountedPrice)}</p> :<p>${addDecimals(qty*movie.price)}</p> }
                       </Col>
                     </Row>
                   </ListGroup.Item>
@@ -117,7 +102,7 @@ const ShowDisplayScreen = ({match}) => {
           </Row>
         </>
     </>
-    )
+  )
 }
 
-export default ShowDisplayScreen
+export default  MovieDisplayScreen
