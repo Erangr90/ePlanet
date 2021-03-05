@@ -24,7 +24,6 @@ app.use(express.json())
 
 app.use('/api/shows', showRoutes)
 app.use('/api/movies', movieRoutes)
-app.use('/api/users', usersRoutes)
 
 app.get('/', (req, res) => {
     res.send('API is running....')

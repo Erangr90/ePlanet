@@ -8,7 +8,6 @@ import connectDB from './config/db.js'
 
 import showRoutes from './routes/showRoutes.js'
 import movieRoutes from './routes/movieRoutes.js'
-import usersRoutes from './routes/userRoutes.js'
 
 dotenv.config()
 
@@ -24,7 +23,6 @@ app.use(express.json())
 
 app.use('/api/shows', showRoutes)
 app.use('/api/movies', movieRoutes)
-app.use('/api/users', usersRoutes)
 
 app.get('/', (req, res) => {
     res.send('API is running....')
