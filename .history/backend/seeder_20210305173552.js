@@ -39,13 +39,13 @@ const importData = async () => {
     const createMovies = await Movie.insertMany(movies)
 
 
-    const sampleKind = createHallKinds[0]
-    const createHalls = halls.map(((hall)=>{return{...hall,hallKind:sampleKind}}))
+    const sampleKind = createHallKinds[0]._id
+    const createHalls = halls.map(((hall)=>{return{...hall,_id:uniqid(), hallKind:sampleKind}}))
     await Hall.insertMany(createHalls)
 
-    const sampleHall = createHalls[0]
+    const sampleHall = createHalls[0]._id
     console.log(createHalls)
-    const sampleMovie = createMovies[0]
+    const sampleMovie = createMovies[0]._id
     const createShows = shows.map((show)=>{return{...show,hall:sampleHall,movie:sampleMovie}})
     await Show.insertMany(createShows)
 

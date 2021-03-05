@@ -15,7 +15,6 @@ const seatSchema = mongoose.Schema(
 
 const hallSchema = mongoose.Schema(
   {
-    _id: String,
     number: {
       type: Number,
       required: [true,'Hall number is required'],
@@ -24,7 +23,7 @@ const hallSchema = mongoose.Schema(
       max:[99,'Hall number can not be more then 2 digits']
     },
     hallKind:{
-        type: mongoose.Mixed,
+        type: mongoose.Schema.Types.ObjectId,
         required: [true,'Hall kind is required'],
         ref: 'HallKind'
     },

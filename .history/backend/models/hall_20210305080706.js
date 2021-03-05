@@ -15,7 +15,7 @@ const seatSchema = mongoose.Schema(
 
 const hallSchema = mongoose.Schema(
   {
-    _id: String,
+    _id:this._id,
     number: {
       type: Number,
       required: [true,'Hall number is required'],
@@ -24,12 +24,12 @@ const hallSchema = mongoose.Schema(
       max:[99,'Hall number can not be more then 2 digits']
     },
     hallKind:{
-        type: mongoose.Mixed,
+        type: mongoose.Schema.Types.ObjectId,
         required: [true,'Hall kind is required'],
         ref: 'HallKind'
     },
     seats:[seatSchema],
-  },{timestamps: true})
+  },{timestamps: true,})
 
 const Hall = mongoose.model('Hall', hallSchema)
 

@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 const showSchema = mongoose.Schema(
   {
     movie: {
-      type: mongoose.Mixed,
+      type: mongoose.Schema.Types.ObjectId,
       required: [true,'Movie is required'],
       ref: 'Movie'
     },

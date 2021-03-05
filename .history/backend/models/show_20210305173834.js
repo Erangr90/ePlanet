@@ -4,14 +4,14 @@ import mongoose from 'mongoose'
 const showSchema = mongoose.Schema(
   {
     movie: {
-      type: mongoose.Mixed,
+      type: mongoose.Schema.Types.ObjectId,
       required: [true,'Movie is required'],
       ref: 'Movie'
     },
     hall:{
         type: mongoose.Mixed,
         required: [true,'Hall is required'],
-        ref: 'Hall'
+        // ref: 'Hall'
     },
     date:{
         type: Date,

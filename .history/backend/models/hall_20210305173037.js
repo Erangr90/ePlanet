@@ -24,7 +24,7 @@ const hallSchema = mongoose.Schema(
       max:[99,'Hall number can not be more then 2 digits']
     },
     hallKind:{
-        type: mongoose.Mixed,
+        type: mongoose.Schema.Types.ObjectId,
         required: [true,'Hall kind is required'],
         ref: 'HallKind'
     },

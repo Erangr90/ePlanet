@@ -40,7 +40,7 @@ const importData = async () => {
 
 
     const sampleKind = createHallKinds[0]
-    const createHalls = halls.map(((hall)=>{return{...hall,hallKind:sampleKind}}))
+    const createHalls = halls.map(((hall)=>{return{...hall,_id:uniqid(), hallKind:sampleKind}}))
     await Hall.insertMany(createHalls)
 
     const sampleHall = createHalls[0]

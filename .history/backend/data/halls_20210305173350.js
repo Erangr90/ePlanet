@@ -1,6 +1,8 @@
+import uniqid from 'uniqid'
 const halls = [
 
     {
+        _id:uniqid(),
         number:1,
         hallKind:{},
         seats:[
@@ -13,6 +15,7 @@ const halls = [
         ]
     },
     {
+        _id:uniqid(),
         number:2,
         hallKind:{},
         seats:[
@@ -25,6 +28,7 @@ const halls = [
         ]
     },
     {
+        _id:uniqid(),
         number:3,
         hallKind:{},
         seats:[
