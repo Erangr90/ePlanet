@@ -1,7 +1,8 @@
 import React from 'react'
+import { useDispatch} from 'react-redux'
 import 'react-multi-carousel/lib/styles.css'
 import Carousel from 'react-multi-carousel'
-// import movies from '../movies'
+import movies from '../movies'
 import Movie from './Movie'
 
 const responsive = {
@@ -24,9 +25,7 @@ const responsive = {
     }
   }
 
-const MoviesCarousel = ({movies}) => {
-
-
+const MoviesCarousel = () => {
     return (
         <Carousel responsive={responsive}>
         {movies.map(movie=><Movie key={movie._id} movie={movie}/>)}

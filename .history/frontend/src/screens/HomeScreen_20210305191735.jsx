@@ -12,15 +12,12 @@ import {getAllMovies} from '../actions/movieActions'
 
 
 const HomeScreen = () => {
-    const movieList = useSelector((state) => state.movieList)
-    const { movies } = movieList
+    const movieListReducer = useSelector((state) => state.movieListReducer)
+    const { movies } = movieListReducer
     const dispatch = useDispatch()
     useEffect(() => {
-        if(movies[0] === undefined){
-            dispatch(getAllMovies())
-
-        }
-    }, [dispatch,movies])
+        dispatch(getAllMovies())
+    }, [dispatch])
     return (
         <>
             <h3>Upcoming Shows</h3>

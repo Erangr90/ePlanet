@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector} from 'react-redux'
 import 'react-multi-carousel/lib/styles.css'
 import Carousel from 'react-multi-carousel'
 // import movies from '../movies'

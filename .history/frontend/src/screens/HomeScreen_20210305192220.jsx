@@ -16,7 +16,7 @@ const HomeScreen = () => {
     const { movies } = movieList
     const dispatch = useDispatch()
     useEffect(() => {
-        if(movies[0] === undefined){
+        if(movies[0].name === undefined){
             dispatch(getAllMovies())
 
         }

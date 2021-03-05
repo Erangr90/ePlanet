@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch} from 'react-redux'
 import 'react-multi-carousel/lib/styles.css'
 import Carousel from 'react-multi-carousel'
-// import movies from '../movies'
+import movies from '../movies'
 import Movie from './Movie'
+import {getAllMovies} from '../actions/movieActions'
 
 const responsive = {
     superLargeDesktop: {
@@ -24,9 +26,11 @@ const responsive = {
     }
   }
 
-const MoviesCarousel = ({movies}) => {
-
-
+const MoviesCarousel = () => {
+    const dispatch = useDispatch()
+    useEffect(() => {
+      dispatch(getAllMovies)
+    }, [dispatch])
     return (
         <Carousel responsive={responsive}>
         {movies.map(movie=><Movie key={movie._id} movie={movie}/>)}

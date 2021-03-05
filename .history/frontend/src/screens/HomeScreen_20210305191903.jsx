@@ -16,11 +16,8 @@ const HomeScreen = () => {
     const { movies } = movieList
     const dispatch = useDispatch()
     useEffect(() => {
-        if(movies[0] === undefined){
-            dispatch(getAllMovies())
-
-        }
-    }, [dispatch,movies])
+        dispatch(getAllMovies())
+    }, [dispatch])
     return (
         <>
             <h3>Upcoming Shows</h3>
